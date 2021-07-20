@@ -7,6 +7,6 @@ setup(name='rotateclustpy',
       author='Lawrence Bilton',
       author_email='lawrence.bilton@gmail.com',
       license='',
-      install_requires=['numpy','scipy','cosmolopy','matplotlib','astlib'],
+      install_requires=['numpy','scipy','progress'],
       packages=['rotateclustpy'],
       zip_safe=False)
