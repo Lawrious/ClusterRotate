@@ -124,8 +124,8 @@ class detector:
 
         self.chisq_random = self.chisqu(vdat=self.vdiff_comp,vmod=self.vdiff_rand,erdat=self.vdiffer_comp,ermod=self.vdiffer_rand)
         time.sleep(1)
-        print 'The chi-sqaured statistic for the ideal curve: %.8f' % self.chisq_ideal
-        print 'The chi-sqaured statistic for the random curve: %.8f' % self.chisq_random
+        print('The chi-sqaured statistic for the ideal curve: %.8f' % self.chisq_ideal)
+        print('The chi-sqaured statistic for the random curve: %.8f' % self.chisq_random)
 
         self.chisq_idedf = self.chisq_ideal/36.0
         self.chisq_randf = self.chisq_random/36.0
@@ -189,7 +189,7 @@ class detector:
     def rotideal(self,ra,dec,ra_clu,dec_clu,vlos,vel_diff,diff_theta):
 
         time.sleep(1)
-        print 'Intiatiating model ideal curve\n'
+        print('Intiatiating model ideal curve\n')
 
         #Producing an ideal curve
         vdiff=[]
@@ -203,9 +203,9 @@ class detector:
         mxdf_theta = diff_theta[np.where(vel_diff == np.nanmax(vel_diff))]
         if np.any(mxdf_theta == 0) == True or np.any(mxdf_theta == 360) == True:
             mxdf_theta = int(0)
-        ttcha= u'\u03b8'
+        ttcha= '\u03b8'
         time.sleep(1)
-        print "vrot = %f kms^{-1} at angle %s = %d\n" % (np.nanmax(vel_diff),ttcha,mxdf_theta)
+        print("vrot = %f kms^{-1} at angle %s = %d\n" % (np.nanmax(vel_diff),ttcha,mxdf_theta))
 
         ra_origin,dec_origin = self.rotate(px=ra_origin,py=dec_origin,angle=(-mxdf_theta),origin=(0.,0.))
 
@@ -223,7 +223,7 @@ class detector:
 
         #vlos2= np.full(len(ra_origin[sem2]),vrot2)
         time.sleep(1)
-        print 'Rotating cluster for the model ideal curve...\n'
+        print('Rotating cluster for the model ideal curve...\n')
         time.sleep(1)
         theta = 0.
         while theta <= 360:
@@ -306,7 +306,7 @@ class detector:
         vdiff_cmer = np.array(vdreer)
 
         time.sleep(1)
-        print 'Ideal curve computed\n'
+        print('Ideal curve computed\n')
 
         return vdiff_ideal,vdiffer_ideal,vdiff_comp,vdiff_cmer
 
@@ -339,7 +339,7 @@ class detector:
 
         time.sleep(1)
 
-        print 'Initialising model random curve\n'
+        print('Initialising model random curve\n')
 
         time.sleep(1)
 
@@ -349,7 +349,7 @@ class detector:
 
         time.sleep(1)
 
-        print 'Iterating through %d resamples\n' % resamples
+        print('Iterating through %d resamples\n' % resamples)
 
         time.sleep(1)
 
@@ -406,11 +406,11 @@ class detector:
 
             vdiff_rdmn.append(np.array(vdap))
 
-            icbar.next()
+            next(icbar)
             i = i + 1
         icbar.finish()
 
-        print 'Computed through %d resamples to produce mean and std values...\n' % resamples
+        print('Computed through %d resamples to produce mean and std values...\n' % resamples)
 
         vdiffstk = np.column_stack(vdiff_rdmn)
 
