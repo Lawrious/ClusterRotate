@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='rotateclustpy',
-      version='0.1',
+      version='0.12',
       description='An algorithm to determine the presence of rotation in galaxy clusters',
       url='http://github.com/Lawrious/ClusterRotate',
       author='Lawrence Bilton',
